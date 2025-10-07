@@ -2,7 +2,9 @@ package com.ecommerce.project.service.impl;
 
 import com.ecommerce.project.model.Category;
 import com.ecommerce.project.service.CategoryService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +32,7 @@ public class CategoryServiceImpl implements CategoryService {
 
         Category category = categories.stream()
                 .filter(cat -> cat.getCategoryId().equals(categoryId))
-                .findFirst().orElse(null);
-
-        if (category == null) {
-            return "Category with categoryId " + categoryId + " not found";
-        }
+                .findFirst().orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Resource not found"));
 
         categories.remove(category);
 
