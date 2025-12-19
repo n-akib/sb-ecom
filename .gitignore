@@ -1,3 +1,29 @@
+### Build output
+/build/
+/target/
+/out/
+
+### Gradle
+/.gradle/
+/build/
+
+### Logs
+*.log
+
+### Compiled class files
+*.class
+
+### IDE files
+.idea/
+*.iml
+*.iws
+.project
+.classpath
+.settings/
+
+### OS-specific files
+.DS_Store
+
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
